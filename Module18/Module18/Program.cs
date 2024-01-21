@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Module18
@@ -7,12 +8,17 @@ namespace Module18
     {
         static void Main(string[] args)
         {
-            Pult pult = new Pult();
-            Gate gate = new Gate();
+            Console.OutputEncoding = Encoding.UTF8;
 
-            pult.SetAction(new GateOpenAction(gate));
-            pult.OpenButton();
-            pult.CloseButton();
+            string videoUrl1 = "https://www.youtube.com/watch?v=tUjIwYeVlQc";
+            string path = "C:\\Users\\Ghosman";
+
+            Receiver receiver = new Receiver();
+            Sender sender = new Sender();
+            ConcreteCommand concreteCommand = new ConcreteCommand(receiver);
+            sender.SetCommand(concreteCommand);
+            sender.Info(videoUrl1);
+            sender.Start(videoUrl1, path);
         }
     }
 }
