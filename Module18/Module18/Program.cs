@@ -6,11 +6,11 @@ namespace Module18
     {
         static void Main(string[] args)
         {
-            CarPlant carPlant = new CarPlant();
+            BaseClass myObject = new ImplementationOne(1);
+            myObject.GetId();
 
-            Conveyor carConveyor = new CarConveyor();
-            carPlant.Construct(carConveyor);
-            carConveyor.Product.Show();
+            BaseClass clone = myObject.Clone();
+            clone.GetId();
         }
     }
 }
