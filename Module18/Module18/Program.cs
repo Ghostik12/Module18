@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Module18
 {
@@ -6,11 +7,12 @@ namespace Module18
     {
         static void Main(string[] args)
         {
-            BaseClass myObject = new ImplementationOne(1);
-            myObject.GetId();
+            Pult pult = new Pult();
+            Gate gate = new Gate();
 
-            BaseClass clone = myObject.Clone();
-            clone.GetId();
+            pult.SetAction(new GateOpenAction(gate));
+            pult.OpenButton();
+            pult.CloseButton();
         }
     }
 }
